@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Calculadora de Investimento</h1>
+  <form (ngSubmit)="calcularInvestimento()">
+    <div class="form-group">
+      <label for="valorInicial">Valor Inicial</label>
+      <input type="number" id="valorInicial" [(ngModel)]="valorInicial" name="valorInicial" min="1" required>
+    </div>
+    <div class="form-group">
+      <label for="prazo">Prazo (meses)</label>
+      <input type="number" id="prazo" [(ngModel)]="prazo" name="prazo" min="2" required>
+    </div>
+    <button type="submit">Calcular</button>
+  </form>
+  <div *ngIf="resultado">
+    <h2>Resultado</h2>
+    <p>Valor Bruto: {{ resultado.valorBruto | currency:'BRL' }}</p>
+    <p>Valor Líquido: {{ resultado.valorLiquido | currency:'BRL' }}</p>
+  </div>
+</div>
